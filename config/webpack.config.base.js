@@ -1,5 +1,3 @@
-// Common Webpack configuration used by webpack.config.development and webpack.config.production
-
 const path = require('path')
     , webpack = require('webpack')
     , autoprefixer = require('autoprefixer');
@@ -8,17 +6,14 @@ module.exports = {
   output: {
     filename: 'js/[name].js',
     path: path.join(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
   },
   resolve: {
     modules: [
         path.join(__dirname, '../src/'),
       'node_modules'
     ],
-    alias: {
-      models: path.join(__dirname, '../src/client/assets/javascripts/models')
-    },
-    extensions: ['.js', '.jsx', '.json', '.scss']
+    extensions: ['.js', '.jsx', '.json', '.less']
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -33,11 +28,17 @@ module.exports = {
   ],
   module: {
     loaders: [
+        {
+            test: /\.js$/,
+            loader: 'babel-loader',
+            include: path.join(__dirname, '../src/'),
+            exclude: /node_modules/
+        },
       // JavaScript / ES6
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, '../src/'),
-        loader: 'babel'
+        include: path.join(__dirname, '../src/'),
+        loader: 'babel-loader'
       },
       // Images
       // Inline base64 URLs for <=8k images, direct URLs for the rest
@@ -57,14 +58,23 @@ module.exports = {
           limit: 8192,
           name: 'fonts/[name].[ext]?[hash]'
         }
-      }
+      },
+        {
+          test: /\.css$/,
+          use: [
+              {
+                  loader: 'postcss-loader',
+                  options: {
+                      plugins: function () {
+                          return [
+                              require('precss'),
+                              require('autoprefixer')
+                          ];
+                      }
+                  }
+              }
+          ]
+        }
     ]
-  },
-  postcss: function () {
-    return [
-      autoprefixer({
-        browsers: ['last 2 versions']
-      })
-    ];
   }
 };

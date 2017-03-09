@@ -15,7 +15,7 @@ class App extends Component {
 
         return <div className='row'>
             <Page photos={page.photos} year={page.year} getPhotos={getPhotos} fetching={page.fetching}/>
-            <User name={user.name} />
+            <User name={'dadada'} />
         </div>
     }
 }
