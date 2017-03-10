@@ -2,10 +2,12 @@
  * Created by pbxadmin on 07.03.17.
  */
 import { combineReducers } from 'redux'
-import page from './page'
-import user from './user'
+import background from './background'
+import text from './text'
+import image from './image'
 
 export default combineReducers({
-    page,
-    user
+    background
+    , text
+    , image
 })
