@@ -3,12 +3,14 @@
  */
 import {
     CHANGE_FONT,
-    CHANGE_TEXT_COLOR
+    CHANGE_TEXT_COLOR,
+    CHANGE_TEXT
 } from '../constants/Text'
 
 const initialState = {
     font: 'Arial',
-    textColor: 'black'
+    textColor: 'black',
+    value: 'Example'
 };
 
 export default function background(state = initialState, action) {
@@ -18,6 +20,9 @@ export default function background(state = initialState, action) {
 
         case CHANGE_TEXT_COLOR:
             return {...state, textColor: action.payload};
+
+        case CHANGE_TEXT:
+            return {...state, value: action.payload};
 
         default:
             return state;

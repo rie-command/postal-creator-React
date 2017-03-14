@@ -3,3 +3,4 @@
  */
 export const CHANGE_FONT = 'CHANGE_FONT';
 export const CHANGE_TEXT_COLOR = 'CHANGE_TEXT_COLOR';
+export const CHANGE_TEXT = 'CHANGE_TEXT';

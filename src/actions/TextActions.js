@@ -3,7 +3,8 @@
  */
 import {
     CHANGE_FONT,
-    CHANGE_TEXT_COLOR
+    CHANGE_TEXT_COLOR,
+    CHANGE_TEXT
 } from '../constants/Text'
 
 export function changeTextColor(color) {
@@ -20,6 +21,15 @@ export function changeFont(font) {
         dispatch({
             type: CHANGE_FONT,
             payload: font
+        });
+    }
+}
+
+export function changeText(text) {
+    return (dispatch) => {
+        dispatch({
+            type: CHANGE_TEXT,
+            payload: text
         });
     }
 }

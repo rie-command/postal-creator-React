@@ -4,8 +4,8 @@
 import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import FontTemplate from '../components/FontTemplate'
-import TextColor from '../components/TextColor'
+import FontTemplate from '../components/Text/FontTemplate'
+import TextColor from '../components/Text/TextColor'
 import * as textActions from '../actions/TextActions'
 
 class Header extends Component {

@@ -14,8 +14,8 @@ export default class TextControl extends Component {
                     <div className="text-color-white"></div>
                     <div className="text-color-black"></div>
                 </div>
+                <p>FONT</p>
                 <div className="font-selector">
-                    <p>FONT</p>
                     <div className="font-selector-normal">Aa</div>
                     <div className="font-selector-italic">Aa</div>
                     <div className="font-selector-bold">Aa</div>
